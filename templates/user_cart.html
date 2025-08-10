@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<h1>Мій кошик</h1>
+<table>
+    <tr><th>Товар</th><th>Кількість</th></tr>
+    {% for item in cart_items %}
+        <tr>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.quantity }}</td>
+        </tr>
+    {% empty %}
+        <tr><td colspan="2">Кошик порожній</td></tr>
+    {% endfor %}
+</table>

@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<h1>Керування товарами</h1>
+<table border="1">
+    <tr><th>Назва</th><th>Опис</th><th>Ціна</th><th>Дії</th></tr>
+    {% for product in products %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price }}</td>
+            <td>
+                <form action="{% url 'delete_product' product.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Видалити</button>
+                </form>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
