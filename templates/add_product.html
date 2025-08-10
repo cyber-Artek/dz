@@ -1,0 +1,8 @@
+<h1>Додати товар</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p>Останній доданий товар: {{ last_product }}</p>
+
+    <button type="submit">Зберегти</button>
+</form>
